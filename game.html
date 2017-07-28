@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game Of Thrones</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#details').hide();
+
+        $('img').hover(function(){
+          var temp = $(this).attr('src');
+          $(this).css('opacity','0.7');
+          $(this).attr('src',$(this).attr('alt-src'));
+          $(this).attr('alt-src',temp);
+
+
+        }, function(){
+        var temp = $(this).attr('src');
+        $(this).css('opacity','1');
+        $(this).attr('src',$(this).attr('alt-src'));
+        $(this).attr('alt-src',temp);
+
+        });
+
+        $('img').click(function(){
+
+          $('#details').hide();
+          var id = $(this).attr("alt");
+          $.get('https://anapioficeandfire.com/api/houses/?name=' + id, function(res){
+             var a = '';
+             a += '<h1>'+res[0].name+'</h1>';
+             a += '<h2>Words</h2>'
+             a += '<h3>'+res[0].words+'</h2>';
+             a += '<h2>Titles</h2>'
+             a += '<h3>'+res[0].titles+'</h2>';
+             $('#details').fadeIn(2000).html(a);
+          });
+
+        });
+
+
+      });
+    </script>
+  </head>
+  <body>
+    <div id="images">
+      <img id="lannister" src="lannister.jpg" alt="House Lannister of Casterly Rock"  alt-src="cersie.gif">
+      <img id="stark" src="stark.jpg" alt="House Stark of Winterfell" alt-src="snow.gif">
+      <img id="baratheon" src="baratheon.png" alt="House Baratheon of Storm's End" alt-src="rob.gif">
+      <img id="targaryen" src="targaryen.jpg" alt="House Targaryen of King's Landing" alt-src="daners.gif">
+    </div>
+    <div id="details">
+      <h1>HOUSE DETAILS</h1>
+    </div>
+  </body>
+</html>

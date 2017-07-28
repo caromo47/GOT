@@ -1,0 +1,47 @@
+*{
+  font-family: 'Playfair Display SC', serif;
+  color: linear-gradient(#1b1e25)
+
+}
+img{
+  display: inline-block;
+  width: 20%;
+  height: 220px;
+  margin: 20px;
+  border-radius: 10px;
+  opacity: 1;
+  box-shadow: 5px 5px 5px #11151e;
+}
+body{
+  text-align: center;
+  background: url(giphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 900px;
+}
+#images{
+  width: 100%;
+  background-color: inherit;
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+#details{
+  width: 60%;
+  background: linear-gradient(#11151e,#11151e,#11151e,#75767b);
+  height: 500px;
+  border-radius: 20px;
+  margin-left: 300px;
+  opacity: .7;
+}
+h1{
+  border-bottom: 5px solid #e8c9c9;
+  color: #e8c9c9;
+}
+h2{
+  color: #af9c9c;
+  text-decoration: underline;
+}
+h3{
+  color: #e8c9c9;
+}
